@@ -10,9 +10,7 @@
     - "{{conf_dir}}"
 
 - name: Create Data Directories
-  file: path={{ item }} state=directory owner={{ es_user }} group={{ es_group }}
-  with_items:
-    - "{{data_dirs}}"
+  file: path={{ data_dirs }} state=directory owner={{ es_user }} group={{ es_group }}
 
 
 #Copy the config template
