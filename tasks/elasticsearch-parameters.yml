@@ -23,8 +23,8 @@
 - fail: msg="Enabling security requires an es_api_basic_auth_username and es_api_basic_auth_password to be provided to allow cluster operations"
   when: es_enable_xpack and ("security" in es_xpack_features) and es_api_basic_auth_username is not defined and es_api_basic_auth_password is not defined
 
-- set_fact: instance_default_file={{default_file | dirname}}/{{default_file | basename}}
-- set_fact: instance_init_script={{init_script | dirname }}/{{init_script | basename}}
+- set_fact: instance_default_file={{default_file}}
+- set_fact: instance_init_script={{init_script}}
 - set_fact: conf_dir={{ es_conf_dir }}
 - set_fact: m_lock_enabled={{ es_config['bootstrap.memory_lock'] is defined and es_config['bootstrap.memory_lock'] == True }}
 
